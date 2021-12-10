@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlowerApp.Views.AdminPage">
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Admin Details">
+        <ContentPage.Content>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="First Name:" FontSize="Medium" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="{Binding AdminFirstName}" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Last Name:" FontSize="Medium" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="{Binding AdminLastName}" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Email:" FontSize="Medium" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="{Binding AdminEmail}" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Password:" FontSize="Medium" HorizontalOptions="FillAndExpand"/>
+                    <Label Text="{Binding AdminPassword}" FontSize="Medium" FontAttributes="Bold"/>
+                </StackLayout>
+            </StackLayout>
+        </ContentPage.Content>
+
+    </ContentPage>
+  <ContentPage Title="Current Flowers" />
+  <ContentPage Title="Current Users" />
+</TabbedPage>

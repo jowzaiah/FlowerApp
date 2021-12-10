@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="FlowerApp.Views.MainPage" Title="Main Page">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked" />
+	</ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="First Name:" FontSize="Medium" HorizontalOptions="Start"/>
+                <Label Text="{Binding UserFirstName}" FontSize="Medium" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Last Name:" FontSize="Medium" HorizontalOptions="Start"/>
+                <Label Text="{Binding UserLastName}" FontSize="Medium" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Email:" FontSize="Medium" HorizontalOptions="Start"/>
+                <Label Text="{Binding UserEmail}" FontSize="Medium" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Password:" FontSize="Medium" HorizontalOptions="Start"/>
+                <Label Text="{Binding UserPassword}" FontSize="Medium" FontAttributes="Bold"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
