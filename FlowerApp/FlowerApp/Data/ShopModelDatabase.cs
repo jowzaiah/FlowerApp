@@ -10,16 +10,25 @@ namespace FlowerApp.Data
 {
     public class ShopModelDatabase
     {
-        static SQLiteAsyncConnection Database;
+        public static SQLiteAsyncConnection Database; //was originally not public
 
         public static readonly AsyncLazy<ShopModelDatabase> Instance = new AsyncLazy<ShopModelDatabase>(async () =>
         {
             var instance = new ShopModelDatabase();
+            int delete_user = await Database.DropTableAsync<Users>();
+            int delete_admin = await Database.DropTableAsync<Admins>();
+            int delete_flower = await Database.DropTableAsync<Flowers>();
+            int delete_arrangement = await Database.DropTableAsync<Arrangements>();
+            int delete_flowerarrangement = await Database.DropTableAsync<FlowerArrangements>();
+            int delete_cart = await Database.DropTableAsync<Carts>();
+            int delete_order = await Database.DropTableAsync<Orders>();
+
+            //await DeleteAll();
             CreateTableResult result_user = await Database.CreateTableAsync<Users>();
             CreateTableResult result_admin = await Database.CreateTableAsync<Admins>();
             CreateTableResult result_flower = await Database.CreateTableAsync<Flowers>();
             CreateTableResult result_arrangement = await Database.CreateTableAsync<Arrangements>();
-            CreateTableResult result_flowerarrangment = await Database.CreateTableAsync<FlowerArrangements>();
+            CreateTableResult result_flowerarrangement = await Database.CreateTableAsync<FlowerArrangements>();
             CreateTableResult result_cart = await Database.CreateTableAsync<Carts>();
             CreateTableResult result_order = await Database.CreateTableAsync<Orders>();
             return instance;
@@ -30,6 +39,12 @@ namespace FlowerApp.Data
             Database = new SQLiteAsyncConnection(DBConstants.DatabasePath, DBConstants.Flags);
         }
 
+        public Task<int> DeleteAll()
+        {
+            return Database.DeleteAllAsync<Users>();
+        }
+
+        
         /*
         public Task<Users> GetUserAsync()
         {   

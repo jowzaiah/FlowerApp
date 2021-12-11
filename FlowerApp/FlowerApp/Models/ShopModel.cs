@@ -23,7 +23,6 @@ namespace FlowerApp.Models
         public string State { get; set; }
         public int ZIP { get; set; }
 
-        [Unique]
         public int PhoneNumber { get; set; }
 
         [OneToMany]
