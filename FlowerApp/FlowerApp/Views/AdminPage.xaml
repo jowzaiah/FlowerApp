@@ -26,6 +26,11 @@
         </ContentPage.Content>
 
     </ContentPage>
-  <ContentPage Title="Current Flowers" />
-  <ContentPage Title="Current Users" />
+    <ContentPage Title="Current Flowers">
+        
+    </ContentPage>
+
+    <ContentPage Title="Current Users" >
+        
+    </ContentPage>
 </TabbedPage>

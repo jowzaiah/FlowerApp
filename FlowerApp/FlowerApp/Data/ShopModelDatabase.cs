@@ -14,14 +14,16 @@ namespace FlowerApp.Data
 
         public static readonly AsyncLazy<ShopModelDatabase> Instance = new AsyncLazy<ShopModelDatabase>(async () =>
         {
+            
             var instance = new ShopModelDatabase();
+            /*
             int delete_user = await Database.DropTableAsync<Users>();
             int delete_admin = await Database.DropTableAsync<Admins>();
             int delete_flower = await Database.DropTableAsync<Flowers>();
             int delete_arrangement = await Database.DropTableAsync<Arrangements>();
             int delete_flowerarrangement = await Database.DropTableAsync<FlowerArrangements>();
             int delete_cart = await Database.DropTableAsync<Carts>();
-            int delete_order = await Database.DropTableAsync<Orders>();
+            int delete_order = await Database.DropTableAsync<Orders>();  */
 
             //await DeleteAll();
             CreateTableResult result_user = await Database.CreateTableAsync<Users>();
@@ -100,6 +102,16 @@ namespace FlowerApp.Data
         public Task<List<Users>> GetAllUsersAsync()
         {
             return Database.Table<Users>().ToListAsync();
+        }
+
+        public Task<List<Flowers>> GetAllFlowersAsync()
+        {
+            return Database.Table<Flowers>().ToListAsync();
+        }
+
+        public Task<List<Admins>> GetAllAdminsAsync()
+        {
+            return Database.Table<Admins>().ToListAsync();
         }
 
         /*
